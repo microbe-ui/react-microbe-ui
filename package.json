@@ -7,7 +7,6 @@
   "jsnext:main": "components/index.es.js",
   "scripts": {
     "build": "rollup -c",
-    "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
@@ -36,12 +35,23 @@
   },
   "homepage": "https://github.com/microbe-ui/react-microbe-ui#readme",
   "devDependencies": {
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-test-renderer": "^16.9.2",
     "prettier": "^1.19.1",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-scripts-ts": "^4.0.8",
+    "react-test-renderer": "^16.13.0",
     "rollup": "^2.0.2",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.2",
     "rollup-plugin-typescript2": "^0.26.0",
     "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   }
 }
