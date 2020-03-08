@@ -4,7 +4,19 @@
   "description": "microbe-ui for React",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "printWidth": 90,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "tabWidth": 4,
+    "useTabs": true
   },
   "repository": {
     "type": "git",
@@ -16,5 +28,9 @@
   "bugs": {
     "url": "https://github.com/microbe-ui/react-microbe-ui/issues"
   },
-  "homepage": "https://github.com/microbe-ui/react-microbe-ui#readme"
+  "homepage": "https://github.com/microbe-ui/react-microbe-ui#readme",
+  "devDependencies": {
+    "prettier": "^1.19.1",
+    "typescript": "^3.8.3"
+  }
 }
