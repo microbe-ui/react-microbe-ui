@@ -2,11 +2,17 @@
   "name": "react-microbe-ui",
   "version": "0.0.1",
   "description": "microbe-ui for React",
-  "main": "index.js",
+  "main": "components/index.js",
+  "module": "components/index.es.js",
+  "jsnext:main": "components/index.es.js",
   "scripts": {
-    "build": "tsc",
+    "build": "rollup -c",
+    "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "components"
+  ],
   "prettier": {
     "arrowParens": "always",
     "bracketSpacing": true,
@@ -31,6 +37,11 @@
   "homepage": "https://github.com/microbe-ui/react-microbe-ui#readme",
   "devDependencies": {
     "prettier": "^1.19.1",
+    "rollup": "^2.0.2",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.2",
+    "rollup-plugin-typescript2": "^0.26.0",
     "typescript": "^3.8.3"
   }
 }
