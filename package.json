@@ -1,13 +1,12 @@
 {
   "name": "react-microbe-ui",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "microbe-ui for React",
-  "main": "components/index.js",
-  "module": "components/index.es.js",
-  "jsnext:main": "components/index.es.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run prettier",
+    "fix": "npm run prettier -- --write",
+    "prettier": "prettier \"src/**/*.{ts,tsx}\" --check"
   },
   "files": [
     "components"
