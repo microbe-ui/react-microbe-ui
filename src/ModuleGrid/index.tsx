@@ -8,9 +8,9 @@ import * as React from 'react';
 // ModuleGrid Component
 // -----------------------------------------------------------------------------
 
-export type ModuleGridCol = 'auto' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type TModuleGridCol = 'auto' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-export interface ModuleGridProps
+export interface IModuleGridProps
 	extends React.HTMLAttributes<
 		| HTMLDivElement
 		| HTMLSpanElement
@@ -29,25 +29,25 @@ export interface ModuleGridProps
 		| 'aside'
 		| 'section'
 		| 'main';
-	cols?: ModuleGridCol;
-	xxsCols?: ModuleGridCol;
-	xsCols?: ModuleGridCol;
-	smCols?: ModuleGridCol;
-	mdCols?: ModuleGridCol;
-	dfCols?: ModuleGridCol;
-	lgCols?: ModuleGridCol;
-	xlCols?: ModuleGridCol;
-	xxlCols?: ModuleGridCol;
-	hdCols?: ModuleGridCol;
+	cols?: TModuleGridCol;
+	xxsCols?: TModuleGridCol;
+	xsCols?: TModuleGridCol;
+	smCols?: TModuleGridCol;
+	mdCols?: TModuleGridCol;
+	dfCols?: TModuleGridCol;
+	lgCols?: TModuleGridCol;
+	xlCols?: TModuleGridCol;
+	xxlCols?: TModuleGridCol;
+	hdCols?: TModuleGridCol;
 }
 
-const colClassName = (col?: ModuleGridCol, mq: string = ''): string | boolean => {
+const colClassName = (col?: TModuleGridCol, mq: string = ''): string | boolean => {
 	return typeof col === 'number' || col === 'auto'
 		? `_${mq}module-grid--${col}`
 		: false;
 };
 
-export const ModuleGrid: React.FC<ModuleGridProps> = ({
+export const ModuleGrid: React.FC<IModuleGridProps> = ({
 	cols,
 	xxsCols,
 	xsCols,
@@ -92,9 +92,9 @@ export const ModuleGrid: React.FC<ModuleGridProps> = ({
 // ModuleCell Component
 // -----------------------------------------------------------------------------
 
-export type ModuleCellSpan = 'auto' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type TModuleCellSpan = 'auto' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-export interface ModuleCellProps
+export interface IModuleCellProps
 	extends React.HTMLAttributes<
 		| HTMLDivElement
 		| HTMLSpanElement
@@ -112,25 +112,25 @@ export interface ModuleCellProps
 		| 'footer'
 		| 'aside'
 		| 'section';
-	span?: ModuleCellSpan;
-	xxsSpan?: ModuleCellSpan;
-	xsSpan?: ModuleCellSpan;
-	smSpan?: ModuleCellSpan;
-	mdSpan?: ModuleCellSpan;
-	dfSpan?: ModuleCellSpan;
-	lgSpan?: ModuleCellSpan;
-	xlSpan?: ModuleCellSpan;
-	xxlSpan?: ModuleCellSpan;
-	hdSpan?: ModuleCellSpan;
+	span?: TModuleCellSpan;
+	xxsSpan?: TModuleCellSpan;
+	xsSpan?: TModuleCellSpan;
+	smSpan?: TModuleCellSpan;
+	mdSpan?: TModuleCellSpan;
+	dfSpan?: TModuleCellSpan;
+	lgSpan?: TModuleCellSpan;
+	xlSpan?: TModuleCellSpan;
+	xxlSpan?: TModuleCellSpan;
+	hdSpan?: TModuleCellSpan;
 }
 
-const spanClassName = (span?: ModuleCellSpan, mq: string = ''): string | boolean => {
+const spanClassName = (span?: TModuleCellSpan, mq: string = ''): string | boolean => {
 	return typeof span === 'number' || span === 'auto'
 		? `_${mq}module-cell--${span}`
 		: false;
 };
 
-export const ModuleCell: React.FC<ModuleCellProps> = ({
+export const ModuleCell: React.FC<IModuleCellProps> = ({
 	span,
 	xxsSpan,
 	xsSpan,
