@@ -1,9 +1,10 @@
 {
   "name": "react-microbe-ui",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha",
   "description": "microbe-ui for React",
   "scripts": {
     "build": "rollup -c",
+    "prepare": "npm run build",
     "test": "npm run prettier",
     "fix": "npm run prettier -- --write",
     "prettier": "prettier \"src/**/*.{ts,tsx}\" --check"
