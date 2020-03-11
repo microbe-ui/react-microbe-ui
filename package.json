@@ -7,7 +7,9 @@
   "jsnext:main": "components/index.es.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run prettier",
+    "fix": "npm run prettier -- --write",
+    "prettier": "prettier \"src/**/*.{ts,tsx}\" --check"
   },
   "files": [
     "components"
