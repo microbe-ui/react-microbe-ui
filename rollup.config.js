@@ -16,6 +16,16 @@ const files = [
 		input: 'src/ModuleGrid/index.tsx',
 		output: 'components/ModuleGrid/index.js',
 		outputES: 'components/ModuleGrid/index.es.js'
+	},
+	{
+		input: 'src/Spacer/index.tsx',
+		output: 'components/Spacer/index.js',
+		outputES: 'components/Spacer/index.es.js'
+	},
+	{
+		input: 'src/blank.ts',
+		output: 'components/blank.js',
+		outputES: 'components/blank.js'
 	}
 ];
 
@@ -30,13 +40,13 @@ export default files.map((file) => ({
 			file: file.output,
 			format: 'cjs',
 			exports: 'named',
-			sourcemap: true
+			sourcemap: file.input !== 'src/blank.ts'
 		},
 		{
 			file: file.outputES,
 			format: 'es',
 			exports: 'named',
-			sourcemap: true
+			sourcemap: file.input !== 'src/blank.ts'
 		}
 	],
 	plugins: [
@@ -45,7 +55,12 @@ export default files.map((file) => ({
 		typescript({
 			rollupCommonJSResolveHack: true,
 			exclude: '**/__tests__/**',
-			clean: true
+			clean: true,
+			tsconfigOverride: {
+				compilerOptions: {
+					declaration: file.input === 'src/blank.ts'
+				}
+			}
 		}),
 		commonjs({
 			include: ['node_modules/**'],

@@ -3,6 +3,8 @@
 // -----------------------------------------------------------------------------
 
 import * as React from 'react';
+import { TRootAttributes, TRootComponent } from '../models/TRootElement';
+import { TInnerAttributes, TInnerComponent } from '../models/TInnerElement';
 
 // -----------------------------------------------------------------------------
 // ModuleGrid Component
@@ -10,25 +12,8 @@ import * as React from 'react';
 
 export type TModuleGridCol = 'auto' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-export interface IModuleGridProps
-	extends React.HTMLAttributes<
-		| HTMLDivElement
-		| HTMLSpanElement
-		| HTMLUListElement
-		| HTMLOListElement
-		| HTMLLIElement
-	> {
-	component?:
-		| 'div'
-		| 'span'
-		| 'ul'
-		| 'ol'
-		| 'li'
-		| 'header'
-		| 'footer'
-		| 'aside'
-		| 'section'
-		| 'main';
+export interface IModuleGridProps extends React.HTMLAttributes<TRootAttributes> {
+	component?: TRootComponent;
 	cols?: TModuleGridCol;
 	xxsCols?: TModuleGridCol;
 	xsCols?: TModuleGridCol;
@@ -94,24 +79,8 @@ export const ModuleGrid: React.FC<IModuleGridProps> = ({
 
 export type TModuleCellSpan = 'auto' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-export interface IModuleCellProps
-	extends React.HTMLAttributes<
-		| HTMLDivElement
-		| HTMLSpanElement
-		| HTMLUListElement
-		| HTMLOListElement
-		| HTMLLIElement
-	> {
-	component?:
-		| 'div'
-		| 'span'
-		| 'ul'
-		| 'ol'
-		| 'li'
-		| 'header'
-		| 'footer'
-		| 'aside'
-		| 'section';
+export interface IModuleCellProps extends React.HTMLAttributes<TInnerAttributes> {
+	component?: TInnerComponent;
 	span?: TModuleCellSpan;
 	xxsSpan?: TModuleCellSpan;
 	xsSpan?: TModuleCellSpan;
