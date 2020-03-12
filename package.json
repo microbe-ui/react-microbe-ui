@@ -6,7 +6,7 @@
     "prebuild": "del-cli ./components",
     "build": "rollup -c",
     "postbuild": "del-cli ./components/blank.d.ts ./components/blank.js",
-    "prepare": "npm run build",
+    "prepublish": "npm run build",
     "test": "npm run prettier",
     "fix": "npm run prettier -- --write",
     "prettier": "prettier \"src/**/*.{ts,tsx}\" --check"
