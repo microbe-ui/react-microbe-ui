@@ -1,1 +1,1 @@
-// blank
+console.log(1);

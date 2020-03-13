@@ -5,28 +5,27 @@
 import * as React from 'react';
 import { TSize } from '../models/TSpace';
 import { TRootAttributes, TRootComponent } from '../models/TRootElement';
+import sizeClassName from './utils/sizeClassName';
 
 // -----------------------------------------------------------------------------
 // Spacer Component
 // -----------------------------------------------------------------------------
 
-export interface ISpacerProps extends React.HTMLAttributes<TRootAttributes> {
-	size?: TSize;
-	component?: TRootComponent;
-	xxsSize?: TSize;
-	xsSize?: TSize;
-	smSize?: TSize;
-	mdSize?: TSize;
-	dfSize?: TSize;
-	lgSize?: TSize;
-	xlSize?: TSize;
-	xxlSize?: TSize;
-	hdSize?: TSize;
-}
+export type TSpacerSize = TSize;
 
-const sizeClassName = (size?: TSize, mq: string = ''): string | boolean => {
-	return typeof size === 'string' ? `_${mq}spacer--${size}` : false;
-};
+export interface ISpacerProps extends React.HTMLAttributes<TRootAttributes> {
+	size?: TSpacerSize;
+	component?: TRootComponent;
+	xxsSize?: TSpacerSize;
+	xsSize?: TSpacerSize;
+	smSize?: TSpacerSize;
+	mdSize?: TSpacerSize;
+	dfSize?: TSpacerSize;
+	lgSize?: TSpacerSize;
+	xlSize?: TSpacerSize;
+	xxlSize?: TSpacerSize;
+	hdSize?: TSpacerSize;
+}
 
 export const Spacer: React.FC<ISpacerProps> = ({
 	size,
@@ -47,7 +46,7 @@ export const Spacer: React.FC<ISpacerProps> = ({
 		component,
 		{
 			// ...htmlProps,
-			classNames: [
+			className: [
 				'_spacer',
 				sizeClassName(size),
 				sizeClassName(xxsSize, 'xxs:'),

@@ -5,6 +5,10 @@
 import * as React from 'react';
 import { TRootAttributes, TRootComponent } from '../models/TRootElement';
 import { TInnerAttributes, TInnerComponent } from '../models/TInnerElement';
+import { TSpacerSize } from '../Spacer';
+import spacerSizeClassName from '../Spacer/utils/sizeClassName';
+import colClassName from './utils/colClassName';
+import spanClassName from './utils/spanClassName';
 
 // -----------------------------------------------------------------------------
 // ModuleGrid Component
@@ -24,13 +28,17 @@ export interface IModuleGridProps extends React.HTMLAttributes<TRootAttributes> 
 	xlCols?: TModuleGridCol;
 	xxlCols?: TModuleGridCol;
 	hdCols?: TModuleGridCol;
+	spacerSize?: TSpacerSize;
+	xxsSpacerSize?: TSpacerSize;
+	xsSpacerSize?: TSpacerSize;
+	smSpacerSize?: TSpacerSize;
+	mdSpacerSize?: TSpacerSize;
+	dfSpacerSize?: TSpacerSize;
+	lgSpacerSize?: TSpacerSize;
+	xlSpacerSize?: TSpacerSize;
+	xxlSpacerSize?: TSpacerSize;
+	hdSpacerSize?: TSpacerSize;
 }
-
-const colClassName = (col?: TModuleGridCol, mq: string = ''): string | boolean => {
-	return typeof col === 'number' || col === 'auto'
-		? `_${mq}module-grid--${col}`
-		: false;
-};
 
 export const ModuleGrid: React.FC<IModuleGridProps> = ({
 	cols,
@@ -43,16 +51,39 @@ export const ModuleGrid: React.FC<IModuleGridProps> = ({
 	xlCols,
 	xxlCols,
 	hdCols,
+	spacerSize,
+	xxsSpacerSize,
+	xsSpacerSize,
+	smSpacerSize,
+	mdSpacerSize,
+	dfSpacerSize,
+	lgSpacerSize,
+	xlSpacerSize,
+	xxlSpacerSize,
+	hdSpacerSize,
 	className,
 	component = 'div',
 	children,
 	...htmlProps
 }) => {
+	const spacerSizes = [
+		spacerSizeClassName(spacerSize),
+		spacerSizeClassName(xxsSpacerSize, 'xxs:'),
+		spacerSizeClassName(xsSpacerSize, 'xs:'),
+		spacerSizeClassName(smSpacerSize, 'sm:'),
+		spacerSizeClassName(mdSpacerSize, 'md:'),
+		spacerSizeClassName(dfSpacerSize, 'df:'),
+		spacerSizeClassName(lgSpacerSize, 'lg:'),
+		spacerSizeClassName(xlSpacerSize, 'xl:'),
+		spacerSizeClassName(xxlSpacerSize, 'xxl:'),
+		spacerSizeClassName(hdSpacerSize, 'hd:')
+	].filter(Boolean).join(' ');
+
 	return React.createElement(
 		component,
 		{
 			...htmlProps,
-			classNames: [
+			className: [
 				'_module-grid',
 				colClassName(cols),
 				colClassName(xxsCols, 'xxs:'),
@@ -64,6 +95,7 @@ export const ModuleGrid: React.FC<IModuleGridProps> = ({
 				colClassName(xlCols, 'xl:'),
 				colClassName(xxlCols, 'xxl:'),
 				colClassName(hdCols, 'hd:'),
+				spacerSizes.length ? '_spacer ' + spacerSizes : false,
 				className
 			]
 				.filter(Boolean)
@@ -93,12 +125,6 @@ export interface IModuleCellProps extends React.HTMLAttributes<TInnerAttributes>
 	hdSpan?: TModuleCellSpan;
 }
 
-const spanClassName = (span?: TModuleCellSpan, mq: string = ''): string | boolean => {
-	return typeof span === 'number' || span === 'auto'
-		? `_${mq}module-cell--${span}`
-		: false;
-};
-
 export const ModuleCell: React.FC<IModuleCellProps> = ({
 	span,
 	xxsSpan,
@@ -119,7 +145,7 @@ export const ModuleCell: React.FC<IModuleCellProps> = ({
 		component,
 		{
 			...htmlProps,
-			classNames: [
+			className: [
 				'_module-cell',
 				spanClassName(span),
 				spanClassName(xxsSpan, 'xxs:'),

@@ -11,6 +11,8 @@ import resolve from 'rollup-plugin-node-resolve';
 // Files
 // -----------------------------------------------------------------------------
 
+const distFolder = JSON.parse(process.env.BUILD_EXAMPLE || 'false') ? 'example/src/' : '';
+
 const files = [
 	{
 		input: 'src/ModuleGrid/index.tsx',
@@ -37,13 +39,13 @@ export default files.map((file) => ({
 	input: file.input,
 	output: [
 		{
-			file: file.output,
+			file: distFolder + file.output,
 			format: 'cjs',
 			exports: 'named',
 			sourcemap: file.input !== 'src/blank.ts'
 		},
 		{
-			file: file.outputES,
+			file: distFolder + file.outputES,
 			format: 'es',
 			exports: 'named',
 			sourcemap: file.input !== 'src/blank.ts'
