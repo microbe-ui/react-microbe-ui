@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import { Spacer } from './components/Spacer';
+import { ModuleGrid, ModuleCell } from './components/ModuleGrid';
+
+const Blank: React.FC = ({ children }) => (
+	<div>
+		<div style={{
+			border: '1px solid #aaa',
+			padding: 16
+		}}>{children}</div>
+	</div>
+);
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App" style={{
+			maxWidth: 980,
+			margin: '2rem auto'
+		}}>
+			<ModuleGrid cols={4} xxlCols={5} spacerSize="md" xxlSpacerSize="xxl">
+				<ModuleCell span={6}>
+					<Blank>cell</Blank>
+				</ModuleCell>
+				<ModuleCell>
+					<Blank>cell</Blank>
+				</ModuleCell>
+				<ModuleCell>
+					<Blank>cell</Blank>
+				</ModuleCell>
+			</ModuleGrid>
+		</div>
+	);
 }
 
 export default App;
