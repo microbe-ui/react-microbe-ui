@@ -25,6 +25,11 @@ const files = [
 		outputES: 'components/Spacer/index.es.js'
 	},
 	{
+		input: 'src/Owl/index.tsx',
+		output: 'components/Owl/index.js',
+		outputES: 'components/Owl/index.es.js'
+	},
+	{
 		input: 'src/blank.ts',
 		output: 'components/blank.js',
 		outputES: 'components/blank.js'

@@ -177,7 +177,7 @@
 
 ._spacer > * {
 	padding-left: var(--microbe-spacer-size) !important;
-	padding-bottom: var(--microbe-spacer-size) !important;
+	margin-bottom: var(--microbe-spacer-size) !important;
 }
 
 ._spacer--xxs {
