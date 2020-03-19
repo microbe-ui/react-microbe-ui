@@ -13,9 +13,10 @@ import sizeClassName from './utils/sizeClassName';
 
 export type TSpacerSize = TSize;
 
-export interface ISpacerProps extends React.HTMLAttributes<TRootAttributes> {
-	size?: TSpacerSize;
+export interface ISpacerProps {
 	component?: TRootComponent;
+	componentProps?: React.HTMLAttributes<TRootAttributes>;
+	size?: TSpacerSize;
 	xxsSize?: TSpacerSize;
 	xsSize?: TSpacerSize;
 	smSize?: TSpacerSize;
@@ -38,14 +39,14 @@ export const Spacer: React.FC<ISpacerProps> = ({
 	xlSize,
 	xxlSize,
 	hdSize,
-	className,
 	component = 'div',
+	componentProps = {},
 	children
 }) => {
 	return React.createElement(
 		component,
 		{
-			// ...htmlProps,
+			...componentProps,
 			className: [
 				'_spacer',
 				sizeClassName(size),
@@ -58,7 +59,7 @@ export const Spacer: React.FC<ISpacerProps> = ({
 				sizeClassName(xlSize, 'xl:'),
 				sizeClassName(xxlSize, 'xxl:'),
 				sizeClassName(hdSize, 'hd:'),
-				className
+				componentProps.className
 			]
 				.filter(Boolean)
 				.join(' ')

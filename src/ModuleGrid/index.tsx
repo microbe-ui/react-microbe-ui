@@ -16,8 +16,9 @@ import spanClassName from './utils/spanClassName';
 
 export type TModuleGridCol = 'auto' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-export interface IModuleGridProps extends React.HTMLAttributes<TRootAttributes> {
+export interface IModuleGridProps {
 	component?: TRootComponent;
+	componentProps?: React.HTMLAttributes<TRootAttributes>;
 	cols?: TModuleGridCol;
 	xxsCols?: TModuleGridCol;
 	xsCols?: TModuleGridCol;
@@ -61,10 +62,9 @@ export const ModuleGrid: React.FC<IModuleGridProps> = ({
 	xlSpacerSize,
 	xxlSpacerSize,
 	hdSpacerSize,
-	className,
 	component = 'div',
-	children,
-	...htmlProps
+	componentProps = {},
+	children
 }) => {
 	const spacerSizes = [
 		spacerSizeClassName(spacerSize),
@@ -82,7 +82,7 @@ export const ModuleGrid: React.FC<IModuleGridProps> = ({
 	return React.createElement(
 		component,
 		{
-			...htmlProps,
+			...componentProps,
 			className: [
 				'_module-grid',
 				colClassName(cols),
@@ -96,7 +96,7 @@ export const ModuleGrid: React.FC<IModuleGridProps> = ({
 				colClassName(xxlCols, 'xxl:'),
 				colClassName(hdCols, 'hd:'),
 				spacerSizes.length ? '_spacer ' + spacerSizes : false,
-				className
+				componentProps.className
 			]
 				.filter(Boolean)
 				.join(' ')
@@ -111,8 +111,9 @@ export const ModuleGrid: React.FC<IModuleGridProps> = ({
 
 export type TModuleCellSpan = 'auto' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-export interface IModuleCellProps extends React.HTMLAttributes<TInnerAttributes> {
+export interface IModuleCellProps {
 	component?: TInnerComponent;
+	componentProps?: React.HTMLAttributes<TInnerAttributes>;
 	span?: TModuleCellSpan;
 	xxsSpan?: TModuleCellSpan;
 	xsSpan?: TModuleCellSpan;
@@ -136,15 +137,14 @@ export const ModuleCell: React.FC<IModuleCellProps> = ({
 	xlSpan,
 	xxlSpan,
 	hdSpan,
-	className,
 	component = 'div',
-	children,
-	...htmlProps
+	componentProps = {},
+	children
 }) => {
 	return React.createElement(
 		component,
 		{
-			...htmlProps,
+			...componentProps,
 			className: [
 				'_module-cell',
 				spanClassName(span),
@@ -157,7 +157,7 @@ export const ModuleCell: React.FC<IModuleCellProps> = ({
 				spanClassName(xlSpan, 'xl:'),
 				spanClassName(xxlSpan, 'xxl:'),
 				spanClassName(hdSpan, 'hd:'),
-				className
+				componentProps.className
 			]
 				.filter(Boolean)
 				.join(' ')
