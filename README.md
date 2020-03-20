@@ -13,7 +13,7 @@ En example:
 ```tsx
 export const MyComponent: React.FC = () => (
     <div>
-        <MyReactComponent className="_pl-def _lg:pd-xl">
+        <MyReactComponent className="_pl-def _lg:pl-xl">
             ...
         </MyReactComponent>
     
