@@ -7,7 +7,6 @@
     "build": "rollup -c",
     "postbuild": "del-cli ./components/blank.d.ts ./components/blank.js",
     "example": "cross-env BUILD_EXAMPLE=true rollup -c",
-    "prepare": "npm run build",
     "test": "npm run prettier",
     "fix": "npm run prettier -- --write",
     "prettier": "prettier \"src/**/*.{ts,tsx}\" --check"
