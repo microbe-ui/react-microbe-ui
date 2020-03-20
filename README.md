@@ -2,7 +2,7 @@
 
 ## DEVELOPMENT IS STOPPED! DO NOT USE THIS PACKAGE
 
-We came to the conclusion that the creation of React Components for generating CSS classes of `microbe-ui` is an overkill. 
+We came to the conclusion that the creation of React Components for generating CSS classes of [`microbe-ui`](https://github.com/microbe-ui/microbe-ui) is an overkill. 
 
 This leads to superfluous abstractions which you shall need to learn, understand and remember.
 
@@ -29,4 +29,4 @@ export const MyComponent: React.FC = () => (
 ---
 
 Keep calm and write clean code ;)  
-_Regards, `microbe-ui` dev team._
+_Regards, [`microbe-ui`](https://github.com/microbe-ui/microbe-ui) dev team._
