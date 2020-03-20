@@ -4,31 +4,30 @@
 
 import * as React from 'react';
 import { TSize } from '../models/TSpace';
-import { TRootAttributes, TRootComponent } from '../models/TRootElement';
 import sizeClassName from './utils/sizeClassName';
 
 // -----------------------------------------------------------------------------
-// Spacer Component
+// Owl Component
 // -----------------------------------------------------------------------------
 
-export type TSpacerSize = TSize;
+export type TOwlSize = TSize;
 
-export interface ISpacerProps {
-	component?: TRootComponent;
-	componentProps?: React.HTMLAttributes<TRootAttributes>;
-	size?: TSpacerSize;
-	xxsSize?: TSpacerSize;
-	xsSize?: TSpacerSize;
-	smSize?: TSpacerSize;
-	mdSize?: TSpacerSize;
-	dfSize?: TSpacerSize;
-	lgSize?: TSpacerSize;
-	xlSize?: TSpacerSize;
-	xxlSize?: TSpacerSize;
-	hdSize?: TSpacerSize;
+export interface IOwlProps {
+	component?: string;
+	componentProps?: React.HTMLAttributes<any>;
+	size?: TOwlSize;
+	xxsSize?: TOwlSize;
+	xsSize?: TOwlSize;
+	smSize?: TOwlSize;
+	mdSize?: TOwlSize;
+	dfSize?: TOwlSize;
+	lgSize?: TOwlSize;
+	xlSize?: TOwlSize;
+	xxlSize?: TOwlSize;
+	hdSize?: TOwlSize;
 }
 
-export const Spacer: React.FC<ISpacerProps> = ({
+export const Owl: React.FC<IOwlProps> = ({
 	size,
 	xxsSize,
 	xsSize,
@@ -48,7 +47,7 @@ export const Spacer: React.FC<ISpacerProps> = ({
 		{
 			...componentProps,
 			className: [
-				'_spacer',
+				'_owl',
 				sizeClassName(size),
 				sizeClassName(xxsSize, 'xxs:'),
 				sizeClassName(xsSize, 'xs:'),
@@ -61,8 +60,8 @@ export const Spacer: React.FC<ISpacerProps> = ({
 				sizeClassName(hdSize, 'hd:'),
 				componentProps.className
 			]
-				.filter(Boolean)
-				.join(' ')
+			.filter(Boolean)
+			.join(' ')
 		},
 		children
 	);
